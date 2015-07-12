@@ -1,0 +1,10 @@
+*.swo
+*.swp
+*.DS_Store
+example/bin/*
+!example/bin/data/
+example/obj/*
+example/graph/*
+!example/graph/main.tex
+!example/graph/graph.png
+
