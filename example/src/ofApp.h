@@ -21,14 +21,14 @@ public:
     void gotMessage(ofMessage msg);
 
 private:
-    void onRedStateEntered(bool &value);
-    void onGreenStateEntered(bool &value);
-    void onBlueStateEntered(bool &value);
-    void onPurpleStateEntered(bool &value);
-    void onRedStateExited(bool &value);
-    void onGreenStateExited(bool &value);
-    void onBlueStateExited(bool &value);
-    void onPurpleStateExited(bool &value);
+    void onRedStateEntered(ofxState* const &value);
+    void onGreenStateEntered(ofxState* const &value);
+    void onBlueStateEntered(ofxState* const &value);
+    void onPurpleStateEntered(ofxState* const &value);
+    void onRedStateExited(ofxState* const &value);
+    void onGreenStateExited(ofxState* const &value);
+    void onBlueStateExited(ofxState* const &value);
+    void onPurpleStateExited(ofxState* const &value);
 
 private:
     ofEvent<string> _actionEvent;

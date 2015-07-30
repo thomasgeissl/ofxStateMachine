@@ -7,10 +7,14 @@ class ofxState
 public:
     ofxState* addListener(ofxStateListener* listener)
     {
+        ofAddListener(_enteredEvent, listener, &ofxStateListener::onEnteredEvent);
+        ofAddListener(_exitedEvent, listener, &ofxStateListener::onExitedEvent);
         return this;
     }
     ofxState* removeListener(ofxStateListener* listener)
     {
+        ofRemoveListener(_enteredEvent, listener, &ofxStateListener::onEnteredEvent);
+        ofRemoveListener(_exitedEvent, listener, &ofxStateListener::onExitedEvent);
         return this;
     }
 	template<class ListenerClass, typename ListenerMethod>
@@ -39,19 +43,17 @@ public:
     }
     ofxState* enter()
     {
-        bool value = true;
-        ofNotifyEvent(_enteredEvent, value, this);
+        ofNotifyEvent(_enteredEvent, this);
         return this;
     }
     ofxState* exit()
     {
-        bool value = true;
-        ofNotifyEvent(_exitedEvent, value, this);
+        ofNotifyEvent(_exitedEvent, this);
         return this;
     }
 
-    ofEvent<bool> _enteredEvent;
-    ofEvent<bool> _exitedEvent;
+    ofEvent<ofxState* const> _enteredEvent;
+    ofEvent<ofxState* const> _exitedEvent;
 protected:
 private:
 };

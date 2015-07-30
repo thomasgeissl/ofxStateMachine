@@ -119,39 +119,39 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 void ofApp::gotMessage(ofMessage msg){
 
 }
-void ofApp::onRedStateEntered(bool &value)
+void ofApp::onRedStateEntered(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"red state entered";
     _backgroundColorParameter = ofColor::red;
 }
-void ofApp::onGreenStateEntered(bool &value)
+void ofApp::onGreenStateEntered(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"green state entered";
     _backgroundColorParameter = ofColor::green;
 }
-void ofApp::onBlueStateEntered(bool &value)
+void ofApp::onBlueStateEntered(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"blue state entered";
     _backgroundColorParameter = ofColor::blue;
 }
-void ofApp::onPurpleStateEntered(bool &value)
+void ofApp::onPurpleStateEntered(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"purple state entered";
     _backgroundColorParameter = ofColor(255,0,255);
 }
-void ofApp::onRedStateExited(bool &value)
+void ofApp::onRedStateExited(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"red state exited";
 }
-void ofApp::onGreenStateExited(bool &value)
+void ofApp::onGreenStateExited(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"green state exited";
 }
-void ofApp::onBlueStateExited(bool &value)
+void ofApp::onBlueStateExited(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"blue state exited";
 }
-void ofApp::onPurpleStateExited(bool &value)
+void ofApp::onPurpleStateExited(ofxState* const &value)
 {
     ofLogNotice("ofApp")<<"purple state exited";
 }
