@@ -7,7 +7,9 @@ This addons provides a set of classes to configure a finite state machine.
 
 Installation
 ---
+```sh
 git clone https://github.com/thomasgeissl/ofxStateMachine.git /path/to/your/openframeworks/addons/ofxStateMachine
+```
 
 Changelog
 ---
