@@ -6,7 +6,10 @@ ofApp::ofApp() :
 	_purpleState(new ofxState()){
 	_graph.load("graph.png");
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35bdf20e403a2a0a8bcaee8c7f33d3ea41d226cf
 	_stateMachine.setInitialState(_redState)
 	->addTransition(_redState, "a", _greenState)
 	->addTransition(_redState, "b", _blueState)
