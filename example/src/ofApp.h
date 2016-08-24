@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxStateMachine.h"
+#include "ofxStateEventArgs.h"
 
 class ofApp : public ofBaseApp {
 	public:
@@ -21,14 +22,14 @@ class ofApp : public ofBaseApp {
 		void gotMessage(ofMessage msg);
 
 	private:
-		void onRedStateEntered(ofxState * const & value);
-		void onGreenStateEntered(ofxState * const & value);
-		void onBlueStateEntered(ofxState * const & value);
-		void onPurpleStateEntered(ofxState * const & value);
-		void onRedStateExited(ofxState * const & value);
-		void onGreenStateExited(ofxState * const & value);
-		void onBlueStateExited(ofxState * const & value);
-		void onPurpleStateExited(ofxState * const & value);
+		void onRedStateEntered(ofxStateEnteredEventArgs & args);
+		void onGreenStateEntered(ofxStateEnteredEventArgs & args);
+		void onBlueStateEntered(ofxStateEnteredEventArgs & args);
+		void onPurpleStateEntered(ofxStateEnteredEventArgs & args);
+		void onRedStateExited(ofxStateExitedEventArgs & args);
+		void onGreenStateExited(ofxStateExitedEventArgs & args);
+		void onBlueStateExited(ofxStateExitedEventArgs & args);
+		void onPurpleStateExited(ofxStateExitedEventArgs & args);
 
 	private:
 		ofEvent <string> _actionEvent;

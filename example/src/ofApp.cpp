@@ -1,9 +1,9 @@
 #include "ofApp.h"
 ofApp::ofApp() :
-	_redState(new ofxState()),
-	_greenState(new ofxState()),
-	_blueState(new ofxState()),
-	_purpleState(new ofxState()){
+	_redState(new ofxState("red")),
+	_greenState(new ofxState("green")),
+	_blueState(new ofxState("blue")),
+	_purpleState(new ofxState("purple")){
 	_graph.load("graph.png");
 
 	_stateMachine.setInitialState(_redState)
@@ -32,15 +32,14 @@ ofApp::ofApp() :
 	_purpleState
 	->addEnteredListener(this, &ofApp::onPurpleStateEntered)
 	->addExitedListener(this, &ofApp::onPurpleStateExited);
-	/*
-	ofAddListener(_redState->_enteredEvent, this, &ofApp::onRedStateEntered);
-	ofAddListener(_greenState->_enteredEvent, this, &ofApp::onGreenStateEntered);
-	ofAddListener(_blueState->_enteredEvent, this, &ofApp::onBlueStateEntered);
 
-	ofAddListener(_redState->_exitedEvent, this, &ofApp::onRedStateExited);
-	ofAddListener(_greenState->_exitedEvent, this, &ofApp::onGreenStateExited);
-	ofAddListener(_blueState->_exitedEvent, this, &ofApp::onBlueStateExited);
-	*/
+//	ofAddListener(_redState->_enteredEvent, this, &ofApp::onRedStateEntered);
+//	ofAddListener(_greenState->_enteredEvent, this, &ofApp::onGreenStateEntered);
+//	ofAddListener(_blueState->_enteredEvent, this, &ofApp::onBlueStateEntered);
+
+//	ofAddListener(_redState->_exitedEvent, this, &ofApp::onRedStateExited);
+//	ofAddListener(_greenState->_exitedEvent, this, &ofApp::onGreenStateExited);
+//	ofAddListener(_blueState->_exitedEvent, this, &ofApp::onBlueStateExited);
 
 	ofAddListener(_actionEvent, &_stateMachine, &ofxStateMachine::onActionEvent);
 	_stateMachine.start();
@@ -117,31 +116,31 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 void ofApp::gotMessage(ofMessage msg){
 
 }
-void ofApp::onRedStateEntered(ofxState * const & value){
-	ofLogNotice("ofApp") << "red state entered";
+void ofApp::onRedStateEntered(ofxStateEnteredEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state entered, previous state: " << args._fromState->getName();
 	_backgroundColorParameter = ofColor::red;
 }
-void ofApp::onGreenStateEntered(ofxState * const & value){
-	ofLogNotice("ofApp") << "green state entered";
+void ofApp::onGreenStateEntered(ofxStateEnteredEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state entered, previous state: " << args._fromState->getName();
 	_backgroundColorParameter = ofColor::green;
 }
-void ofApp::onBlueStateEntered(ofxState * const & value){
-	ofLogNotice("ofApp") << "blue state entered";
+void ofApp::onBlueStateEntered(ofxStateEnteredEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state entered, previous state: " << args._fromState->getName();
 	_backgroundColorParameter = ofColor::blue;
 }
-void ofApp::onPurpleStateEntered(ofxState * const & value){
-	ofLogNotice("ofApp") << "purple state entered";
+void ofApp::onPurpleStateEntered(ofxStateEnteredEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state entered, previous state: " << args._fromState->getName();
 	_backgroundColorParameter = ofColor(255, 0, 255);
 }
-void ofApp::onRedStateExited(ofxState * const & value){
-	ofLogNotice("ofApp") << "red state exited";
+void ofApp::onRedStateExited(ofxStateExitedEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state exited, next state: " << args._toState->getName();
 }
-void ofApp::onGreenStateExited(ofxState * const & value){
-	ofLogNotice("ofApp") << "green state exited";
+void ofApp::onGreenStateExited(ofxStateExitedEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state exited, next state: " << args._toState->getName();
 }
-void ofApp::onBlueStateExited(ofxState * const & value){
-	ofLogNotice("ofApp") << "blue state exited";
+void ofApp::onBlueStateExited(ofxStateExitedEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state exited, next state: " << args._toState->getName();
 }
-void ofApp::onPurpleStateExited(ofxState * const & value){
-	ofLogNotice("ofApp") << "purple state exited";
+void ofApp::onPurpleStateExited(ofxStateExitedEventArgs & args){
+	ofLogNotice("ofApp") << args._currentState->getName() << " state exited, next state: " << args._toState->getName();
 }
