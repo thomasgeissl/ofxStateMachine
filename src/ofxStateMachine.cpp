@@ -15,6 +15,15 @@ ofxStateMachine * ofxStateMachine::addTransition(ofxState * from, string action,
 	return this;
 }
 
+ofxStateMachine * ofxStateMachine::removeTransition(ofxState * from, string action, ofxState * to){
+	pair <ofxState *, string> key(from, action);
+	auto it = _transitions.find(key);
+	if(it != _transitions.end() && _transitions[key] == to){
+		_transitions.erase(it);
+	}
+	return this;
+}
+
 void ofxStateMachine::onActionEvent(string & action){
 	if(!_runningB){
 		return;

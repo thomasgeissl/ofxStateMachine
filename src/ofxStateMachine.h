@@ -7,6 +7,8 @@ class ofxStateMachine {
 		ofxStateMachine();
 		ofxStateMachine * setInitialState(ofxState * state);
 		ofxStateMachine * addTransition(ofxState * from, string action, ofxState * to);
+		ofxStateMachine * removeTransition(ofxState * from, string action, ofxState * to);
+
 		void onActionEvent(string & action);
 		void transit(string action);
 		bool isRunning();
