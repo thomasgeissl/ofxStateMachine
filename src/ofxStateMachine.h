@@ -34,9 +34,14 @@ class ofxStateMachine {
 		bool isRunning(){
 			return _runningB;
 		}
-		ofxState * getCurrentState(){
+		ofxState * getCurrentState() const{
 			return _currentState;
 		}
+
+		bool isCurrentState(ofxState * state){
+			return _currentState == state;
+		}
+
 		ofxStateMachine * start(){
 			if(_runningB){
 				ofLogWarning("ofxStateMachine") << "state machine is already running";
@@ -55,6 +60,10 @@ class ofxStateMachine {
 				ofLogWarning("ofxStateMachine") << "state machine is already stopped";
 			}
 			return this;
+		}
+		ofxStateMachine * clear(){
+			_transitions.clear();
+			_initialState = nullptr;
 		}
 
 
