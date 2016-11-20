@@ -5,9 +5,9 @@
 class ofxStateMachine {
 	public:
 		ofxStateMachine();
-		ofxStateMachine * setInitialState(ofxState * state);
-		ofxStateMachine * addTransition(ofxState * from, string action, ofxState * to);
-		ofxStateMachine * removeTransition(ofxState * from, string action, ofxState * to);
+		void setInitialState(ofxState * state);
+		void addTransition(ofxState * from, string action, ofxState * to);
+		void removeTransition(ofxState * from, string action, ofxState * to);
 
 		void onActionEvent(string & action);
 		void transit(string action);
@@ -15,9 +15,9 @@ class ofxStateMachine {
 		ofxState * getCurrentState() const;
 		bool isCurrentState(ofxState * state);
 
-		ofxStateMachine * start();
-		ofxStateMachine * stop();
-		ofxStateMachine * clear();
+		void start();
+		void stop();
+		void clear();
 
 	protected:
 	private:

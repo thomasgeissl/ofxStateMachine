@@ -6,32 +6,28 @@ ofApp::ofApp() :
 	_purpleState(new ofxState("purple")){
 	_graph.load("graph.png");
 
-	_stateMachine.setInitialState(_redState)
-	->addTransition(_redState, "a", _greenState)
-	->addTransition(_redState, "b", _blueState)
-	->addTransition(_redState, "c", _purpleState)
-	->addTransition(_greenState, "a", _redState)
-	->addTransition(_greenState, "b", _blueState)
-	->addTransition(_blueState, "a", _redState)
-	->addTransition(_blueState, "b", _greenState)
-	->addTransition(_purpleState, "c", _blueState);
+	_stateMachine.setInitialState(_redState);
+	_stateMachine.addTransition(_redState, "a", _greenState);
+	_stateMachine.addTransition(_redState, "b", _blueState);
+	_stateMachine.addTransition(_redState, "c", _purpleState);
+	_stateMachine.addTransition(_greenState, "a", _redState);
+	_stateMachine.addTransition(_greenState, "b", _blueState);
+	_stateMachine.addTransition(_blueState, "a", _redState);
+	_stateMachine.addTransition(_blueState, "b", _greenState);
+	_stateMachine.addTransition(_purpleState, "c", _blueState);
 
 	_parameters.setName("Parameters");
 	_backgroundColorParameter.set("Background color", ofColor::red);
 	_parameters.add(_backgroundColorParameter);
 
-	_redState
-	->addEnteredListener(this, &ofApp::onRedStateEntered)
-	->addExitedListener(this, &ofApp::onRedStateExited);
-	_greenState
-	->addEnteredListener(this, &ofApp::onGreenStateEntered)
-	->addExitedListener(this, &ofApp::onGreenStateExited);
-	_blueState
-	->addEnteredListener(this, &ofApp::onBlueStateEntered)
-	->addExitedListener(this, &ofApp::onBlueStateExited);
-	_purpleState
-	->addEnteredListener(this, &ofApp::onPurpleStateEntered)
-	->addExitedListener(this, &ofApp::onPurpleStateExited);
+	_redState->addEnteredListener(this, &ofApp::onRedStateEntered);
+	_redState->addExitedListener(this, &ofApp::onRedStateExited);
+	_greenState->addEnteredListener(this, &ofApp::onGreenStateEntered);
+	_greenState->addExitedListener(this, &ofApp::onGreenStateExited);
+	_blueState->addEnteredListener(this, &ofApp::onBlueStateEntered);
+	_blueState->addExitedListener(this, &ofApp::onBlueStateExited);
+	_purpleState->addEnteredListener(this, &ofApp::onPurpleStateEntered);
+	_purpleState->addExitedListener(this, &ofApp::onPurpleStateExited);
 
 //	ofAddListener(_redState->_enteredEvent, this, &ofApp::onRedStateEntered);
 //	ofAddListener(_greenState->_enteredEvent, this, &ofApp::onGreenStateEntered);

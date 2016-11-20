@@ -4,24 +4,21 @@ ofxStateMachine::ofxStateMachine() :
 	_runningB(false){
 }
 
-ofxStateMachine * ofxStateMachine::setInitialState(ofxState * state){
+void ofxStateMachine::setInitialState(ofxState * state){
 	_initialState = state;
-	return this;
 }
 
-ofxStateMachine * ofxStateMachine::addTransition(ofxState * from, string action, ofxState * to){
+void ofxStateMachine::addTransition(ofxState * from, string action, ofxState * to){
 	pair <ofxState *, string> key(from, action);
 	_transitions[key] = to;
-	return this;
 }
 
-ofxStateMachine * ofxStateMachine::removeTransition(ofxState * from, string action, ofxState * to){
+void ofxStateMachine::removeTransition(ofxState * from, string action, ofxState * to){
 	pair <ofxState *, string> key(from, action);
 	auto it = _transitions.find(key);
 	if(it != _transitions.end() && _transitions[key] == to){
 		_transitions.erase(it);
 	}
-	return this;
 }
 
 void ofxStateMachine::onActionEvent(string & action){
@@ -53,7 +50,7 @@ bool ofxStateMachine::isCurrentState(ofxState * state){
 	return _currentState == state;
 }
 
-ofxStateMachine * ofxStateMachine::start(){
+void ofxStateMachine::start(){
 	if(_runningB){
 		ofLogWarning("ofxStateMachine") << "state machine is already running";
 	}else{
@@ -61,20 +58,18 @@ ofxStateMachine * ofxStateMachine::start(){
 		_currentState = _initialState;
 		_currentState->enter(_initialState); //nullptr?
 	}
-	return this;
 }
 
-ofxStateMachine * ofxStateMachine::stop(){
+void ofxStateMachine::stop(){
 	_currentState->exit(_initialState);
 	if(_runningB){
 		_runningB = false;
 	}else{
 		ofLogWarning("ofxStateMachine") << "state machine is already stopped";
 	}
-	return this;
 }
 
-ofxStateMachine * ofxStateMachine::clear(){
+void ofxStateMachine::clear(){
 	_transitions.clear();
 	_initialState = nullptr;
 }
