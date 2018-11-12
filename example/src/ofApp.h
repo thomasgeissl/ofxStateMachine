@@ -34,10 +34,10 @@ class ofApp : public ofBaseApp {
 	private:
 		ofEvent <string> _actionEvent;
 		ofxStateMachine _stateMachine;
-		ofxState * _redState;
-		ofxState * _greenState;
-		ofxState * _blueState;
-		ofxState * _purpleState;
+		ofxState _redState;
+		ofxState _greenState;
+		ofxState _blueState;
+		ofxState _purpleState;
 
 		ofParameterGroup _parameters;
 		ofParameter <ofColor> _backgroundColorParameter;
