@@ -7,7 +7,7 @@ This addons provides a set of classes to configure a finite state machine.
 
 ## Build status
 
-![Build Status](https://travis-ci.com/thomasgeissl/ofxStateMachine.svg?branch=master)](https://travis-ci.com/thomasgeissl/ofxStateMachine)
+[![Build Status](https://travis-ci.com/thomasgeissl/ofxStateMachine.svg?branch=master)](https://travis-ci.com/thomasgeissl/ofxStateMachine)
 
 ## License
 
