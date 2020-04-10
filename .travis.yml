@@ -12,6 +12,7 @@ script:
   #   - source ./ofTravis/common/compile_app.sh
   #   - source ./ofTravis/common/package_app.sh
   - source ./ofTravis/common/compile_addon_examples.sh
+  - if [ "$TRAVIS_OS_NAME" = osx ]; then source ./ofTravis/osx/add_certificate.sh; fi
   - source ./ofTravis/common/package_addon.sh
 
 deploy:
