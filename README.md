@@ -5,9 +5,9 @@
 ofxStateMachine is an addon for openframeworks <https://github.com/openframeworks/openframeworks>.
 This addons provides a set of classes to configure a finite state machine.
 
-## Build status
-
-[![Build Status](https://travis-ci.com/thomasgeissl/ofxStateMachine.svg?branch=master)](https://travis-ci.com/thomasgeissl/ofxStateMachine)
+## Changelog
+* 2.0.0: better naming
+* 1.0.0: smart pointers
 
 ## License
 
