@@ -61,19 +61,19 @@ void ofApp::keyPressed(int key)
 	switch (key)
 	{
 	case 'a':
-		_stateMachine.transit("a"); break;
+		_stateMachine.trigger("a"); break;
 //        action = "a";
 //        ofNotifyEvent(_actionEvent, action);
 //        break;
 
 	case 'b':
-		_stateMachine.transit("b"); break;
+		_stateMachine.trigger("b"); break;
 //        action = "b";
 //        ofNotifyEvent(_actionEvent, "b");
 //        break;
 
 	case 'c':
-        _stateMachine.transit("c"); break;
+        _stateMachine.trigger("c"); break;
 //        action = "c";
 //        ofNotifyEvent(_actionEvent, action);
 //        break;

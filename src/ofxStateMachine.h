@@ -11,7 +11,7 @@ public:
 	void removeTransition(ofxState::pointer from, std::string action, ofxState::pointer to);
 
 	void onActionEvent(string &action);
-	void transit(string action);
+	void trigger(string action);
 	bool isRunning();
 	ofxState::pointer getCurrentState() const;
 	bool isCurrentState(ofxState::pointer state);

@@ -43,7 +43,7 @@ void ofxStateMachine::onActionEvent(std::string &action)
 	}
 }
 
-void ofxStateMachine::transit(std::string action)
+void ofxStateMachine::trigger(std::string action)
 {
 	onActionEvent(action);
 }
